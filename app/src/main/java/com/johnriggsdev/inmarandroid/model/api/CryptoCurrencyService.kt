@@ -1,4 +1,4 @@
-package com.johnriggsdev.inmarandroid.model
+package com.johnriggsdev.inmarandroid.model.api
 
 import com.johnriggsdev.inmarandroid.utils.Constants.Companion.BASE_URL
 import io.reactivex.Single

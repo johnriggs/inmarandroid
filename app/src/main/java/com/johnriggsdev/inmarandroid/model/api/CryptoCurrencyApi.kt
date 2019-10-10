@@ -1,4 +1,4 @@
-package com.johnriggsdev.inmarandroid.model
+package com.johnriggsdev.inmarandroid.model.api
 
 import com.johnriggsdev.inmarandroid.utils.Constants.Companion.LISTINGS_LATEST_URL
 import com.johnriggsdev.inmarandroid.utils.Constants.Companion.METADATA_URL

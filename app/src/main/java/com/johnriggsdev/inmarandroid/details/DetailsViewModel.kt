@@ -3,7 +3,7 @@ package com.johnriggsdev.inmarandroid.details
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.johnriggsdev.inmarandroid.model.CryptoCurrencyService
+import com.johnriggsdev.inmarandroid.model.api.CryptoCurrencyService
 import com.johnriggsdev.inmarandroid.model.Currency
 import com.johnriggsdev.inmarandroid.model.CurrencyMetadata
 import com.johnriggsdev.inmarandroid.utils.Constants

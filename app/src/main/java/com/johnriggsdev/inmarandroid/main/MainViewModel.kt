@@ -3,7 +3,7 @@ package com.johnriggsdev.inmarandroid.main
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.johnriggsdev.inmarandroid.model.CryptoCurrencyService
+import com.johnriggsdev.inmarandroid.model.api.CryptoCurrencyService
 import com.johnriggsdev.inmarandroid.model.Currency
 import com.johnriggsdev.inmarandroid.utils.Constants
 import com.johnriggsdev.inmarandroid.utils.Constants.Companion.ACCEPT_KEY
@@ -13,8 +13,6 @@ import com.johnriggsdev.inmarandroid.utils.Constants.Companion.DEFAULT_SORT
 import com.johnriggsdev.inmarandroid.utils.Constants.Companion.HEADER_KEY
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
-import io.reactivex.disposables.Disposables
-import io.reactivex.rxkotlin.addTo
 import io.reactivex.schedulers.Schedulers
 
 class MainViewModel : ViewModel() {
