@@ -1,3 +1,15 @@
 <resources>
     <string name="app_name">Inmar Android</string>
+    <string name="retry">Retry</string>
+    <string name="name">Name:</string>
+    <string name="price">Price (USD):</string>
+    <string name="market_cap">Market Cap:</string>
+    <string name="volume">Volume (24h):</string>
+    <string name="dollar_amount">$%f</string>
+    <string name="no_currencies">No Crypto Currencies were found. Perhaps the API is down.</string>
+    <string name="website">Website</string>
+    <string name="tech_docs">Tech Docs</string>
+    <string name="description">Description</string>
+    <string name="no_url_found">No URL Found</string>
+    <string name="crypto_currency_logo">Crypto Currency Logo</string>
 </resources>

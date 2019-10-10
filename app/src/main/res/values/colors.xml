@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#008577</color>
-    <color name="colorPrimaryDark">#00574B</color>
-    <color name="colorAccent">#D81B60</color>
+    <color name="colorPrimary">@color/inmar_blue</color>
+    <color name="colorPrimaryDark">@color/inmar_blue_dark</color>
+    <color name="colorAccent">@color/inmar_orange</color>
+
+    <color name="inmar_blue">#FF007DC3</color>
+    <color name="inmar_blue_dark">#FF004A90</color>
+    <color name="inmar_green">#FF54B948</color>
+    <color name="inmar_orange">#FFFBB034</color>
+
+    <color name="text_grey">#FF646464</color>
+    <color name="text_white">#FFDEDEDE</color>
+
+    <color name="dark_bkgd">#FF343434</color>
+    <color name="row_bkgd">#FFDEDEDE</color>
 </resources>

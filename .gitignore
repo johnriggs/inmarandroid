@@ -84,3 +84,5 @@ lint/tmp/
 .idea/codeStyles/
 
 .idea/
+
+.DS_Store

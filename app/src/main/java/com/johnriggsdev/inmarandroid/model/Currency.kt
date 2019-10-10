@@ -18,7 +18,7 @@ data class Currency(
     @SerializedName("last_updated") val lastUpdated : String,
     @SerializedName("date_added") val dateAdded : String,
     val tags : Array<String>,
-    val platform : String?,
+    val platform : CurrencyPlatform?,
     @SerializedName("quote") val quotes : Map<String, Quote>
     ) : Parcelable {
 

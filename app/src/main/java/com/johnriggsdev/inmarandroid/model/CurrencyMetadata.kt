@@ -14,5 +14,5 @@ class CurrencyMetadata (val urls : Map<String, Array<String>>,
                         val description : String,
                         @SerializedName("date_added") val dateAdded : String,
                         val tags : Array<String>,
-                        val platform : String?,
+                        val platform : CurrencyPlatform,
                         val category : String) : Parcelable

@@ -8,11 +8,13 @@ class Constants {
         const val APP_JSON = "application/json"
         const val ACCEPT_KEY = "Accept"
 //        const val CONTENT_TYPE_KEY = "Content-type"
-        const val API_COUNT = 50
-        const val DEFAULT_API_START = 1
+        const val API_COUNT = "50"
+        const val DEFAULT_API_START = "1"
         const val BASE_URL = "https://pro-api.coinmarketcap.com/v1/cryptocurrency/"
         const val LISTINGS_LATEST_URL = "listings/latest"
         const val METADATA_URL = "info"
+        const val DEFAULT_CONVERT_ID = "USD"
+        const val DEFAULT_SORT = "market_cap"
 
         fun getApiKey() : String = API_KEY
     }
