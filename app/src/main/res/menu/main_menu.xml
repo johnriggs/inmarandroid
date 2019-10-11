@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@+id/file"
+        android:title="@string/sort_by">
+        <!-- "Sort" submenu -->
+        <menu>
+            <item android:id="@+id/sort_market"
+                android:title="@string/menu_market_cap" />
+            <item android:id="@+id/sort_price"
+                android:title="@string/menu_price" />
+            <item android:id="@+id/sort_name"
+                android:title="@string/menu_name" />
+            <item android:id="@+id/sort_date"
+                android:title="@string/menu_date_added" />
+            <item android:id="@+id/sort_24h"
+                android:title="@string/menu_24h_volume" />
+        </menu>
+    </item>
+</menu>

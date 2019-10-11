@@ -1,5 +1,6 @@
 package com.johnriggs.inmarandroid
 
+import android.content.SharedPreferences
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import com.johnriggsdev.inmarandroid.main.MainViewModel
 import com.johnriggsdev.inmarandroid.model.api.CryptoCurrencyService
@@ -9,6 +10,7 @@ import org.junit.Test
 import org.junit.Before
 import org.junit.Rule
 import com.johnriggsdev.inmarandroid.utils.Constants
+import com.johnriggsdev.inmarandroid.utils.Constants.Companion.DEFAULT_SORT
 import com.nhaarman.mockito_kotlin.times
 import com.nhaarman.mockito_kotlin.verify
 import io.reactivex.Single
@@ -16,6 +18,8 @@ import org.awaitility.Awaitility.await
 import org.junit.ClassRule
 import org.mockito.Mockito
 import java.util.concurrent.Callable
+import org.mockito.ArgumentMatchers.anyString
+
 
 class MainViewModelTest {
     @get:Rule val testRule = InstantTaskExecutorRule()
@@ -26,11 +30,17 @@ class MainViewModelTest {
 
     lateinit var mockApiService : CryptoCurrencyService
     lateinit var viewModel : MainViewModel
+    lateinit var mockPrefs : SharedPreferences
 
     @Before
     fun setup(){
         mockApiService = mock()
+        mockPrefs = mock()
+
         viewModel = MainViewModel()
+
+        Mockito.`when`(mockPrefs.getString(anyString(), anyString())).thenReturn(DEFAULT_SORT)
+        viewModel.setPrefs(mockPrefs)
 
         viewModel.service = mockApiService
     }

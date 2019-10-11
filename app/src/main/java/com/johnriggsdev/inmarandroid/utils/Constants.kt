@@ -14,6 +14,13 @@ class Constants {
         const val METADATA_URL = "info"
         const val DEFAULT_SORT = "market_cap"
 
+        const val PREFS_SORT_KEY = "prefsSortKey"
+        const val SORT_MKC = "market_cap"
+        const val SORT_NAME = "name"
+        const val SORT_PRICE = "price"
+        const val SORT_DATE = "date_added"
+        const val SORT_24H = "volume_24h"
+
         val HEADERS: MutableMap<String, String> = mutableMapOf(ACCEPT_KEY to APP_JSON, HEADER_KEY to API_KEY)
     }
 }

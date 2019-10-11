@@ -19,6 +19,24 @@
         android:src="@drawable/inmar_bkgd"
         android:contentDescription="@string/crypto_currency_logo"/>
 
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/main_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        android:background="@color/colorPrimary"
+        android:elevation="@dimen/elevation_24">
+
+        <TextView
+            android:id="@+id/toolbar_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="sans-serif-medium"
+            android:textStyle="bold"
+            android:textSize="@dimen/text_16"/>
+
+    </androidx.appcompat.widget.Toolbar>
+
     <Button
         android:id="@+id/retry_button"
         android:layout_width="wrap_content"
@@ -39,10 +57,11 @@
         android:id="@+id/main_recycler"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/main_toolbar"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="@dimen/margin_56"
         android:visibility="gone"/>
 
     <ProgressBar
@@ -69,7 +88,9 @@
     <FrameLayout
         android:id="@+id/details_frame"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintTop_toBottomOf="@id/main_toolbar"
+        app:layout_constraintBottom_toBottomOf="parent"
         android:layout_margin="@dimen/margin_32"
         android:elevation="@dimen/elevation_48"/>
 

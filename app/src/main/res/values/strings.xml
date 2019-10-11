@@ -12,4 +12,11 @@
     <string name="description">Description</string>
     <string name="no_url_found">No URL Found</string>
     <string name="crypto_currency_logo">Crypto Currency Logo</string>
+    <string name="sort_by">Sort By:</string>
+    <string name="menu_market_cap">Market Cap</string>
+    <string name="menu_price">Price</string>
+    <string name="menu_name">Name</string>
+    <string name="menu_date_added">Date Added</string>
+    <string name="menu_24h_volume">24H Volume</string>
+    <string name="top_50_currencies">Top 50 Crypto Currencies (%s)</string>
 </resources>
