@@ -4,6 +4,7 @@ import android.os.Parcelable
 import com.google.gson.annotations.SerializedName
 import kotlinx.android.parcel.Parcelize
 
+@Suppress("unused")
 @Parcelize
 class CurrencyMetadata (val urls : Map<String, Array<String>>,
                         val logo : String,
@@ -14,5 +15,5 @@ class CurrencyMetadata (val urls : Map<String, Array<String>>,
                         val description : String,
                         @SerializedName("date_added") val dateAdded : String,
                         val tags : Array<String>,
-                        val platform : CurrencyPlatform,
+                        val platform : CurrencyPlatform?,
                         val category : String) : Parcelable

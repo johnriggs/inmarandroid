@@ -12,7 +12,7 @@ import kotlinx.android.synthetic.main.row_main_rv.view.*
 class MainAdapter(private var currencies : MutableList<Currency>, private val clickListener: ClickListener, private val context : Context) : RecyclerView.Adapter<MainAdapter.MainViewHolder>() {
 
     companion object {
-        private final val USD = "USD"
+        private const val USD = "USD"
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MainViewHolder {
@@ -25,13 +25,14 @@ class MainAdapter(private var currencies : MutableList<Currency>, private val cl
     }
 
     override fun onBindViewHolder(holder: MainViewHolder, position: Int) {
-        val currency = currencies.get(position)
-        val quote = currency.quotes.get(USD)
+        val currency = currencies[position]
+        val quote = currency.quotes[USD]
 
-        holder.view.row_parent.setOnClickListener(View.OnClickListener {
+        holder.view.row_parent.setOnClickListener {
             clickListener.onItemClicked(currency)
-        })
+        }
 
+        @Suppress("DEPRECATION")
         when (position % 3) {
             0 -> holder.view.currency_symbol.setBackgroundColor(context.resources.getColor(R.color.inmar_blue))
             1 -> holder.view.currency_symbol.setBackgroundColor(context.resources.getColor(R.color.inmar_green))

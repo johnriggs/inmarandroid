@@ -27,7 +27,7 @@ class CryptoCurrencyService {
             .client(client)
             .build()
 
-        api = retrofit.create(CryptoCurrencyApi::class.java!!)
+        api = retrofit.create(CryptoCurrencyApi::class.java)
     }
 
     fun getTopFiftyCurrencies(headers : Map<String, String>,

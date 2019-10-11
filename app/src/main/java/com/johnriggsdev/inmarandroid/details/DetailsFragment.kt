@@ -1,3 +1,5 @@
+@file:Suppress("PLUGIN_WARNING")
+
 package com.johnriggsdev.inmarandroid.details
 
 import android.app.Activity
@@ -8,7 +10,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
-import android.widget.Toast.LENGTH_SHORT
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
@@ -18,7 +19,6 @@ import com.johnriggsdev.inmarandroid.R
 import com.johnriggsdev.inmarandroid.model.Currency
 import com.johnriggsdev.inmarandroid.model.CurrencyMetadata
 import kotlinx.android.parcel.Parcelize
-import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.fragment_details.*
 
 @Parcelize
@@ -113,24 +113,24 @@ class DetailsFragment : Fragment(), Parcelable {
     }
 
     private fun setupListeners() {
-        metadata_retry_button.setOnClickListener(View.OnClickListener {
+        metadata_retry_button.setOnClickListener {
             viewModel.onRefresh()
-        })
+        }
 
-        website_url.setOnClickListener(View.OnClickListener {
+        website_url.setOnClickListener {
             interactionListener.onUrlClicked(website_url.text as String)
-        })
+        }
 
-        tech_docs_url.setOnClickListener(View.OnClickListener {
+        tech_docs_url.setOnClickListener {
             interactionListener.onUrlClicked(tech_docs_url.text as String)
-        })
+        }
     }
 
-    fun setupCurrencyName(name : String){
+    private fun setupCurrencyName(name : String){
         currency_title.text = name
     }
 
-    fun setupViews(metadata: CurrencyMetadata){
+    private fun setupViews(metadata: CurrencyMetadata){
         lateinit var website : String
         lateinit var techDocs : String
 

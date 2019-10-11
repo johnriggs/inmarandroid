@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -27,7 +28,8 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toStartOf="@id/title_scrollview_parent"
                 app:layout_constraintHorizontal_chainStyle="packed"
-                android:src="@drawable/inmar_placeholder"/>
+                android:src="@drawable/inmar_placeholder"
+                android:contentDescription="@string/crypto_currency_logo"/>
 
             <RelativeLayout
                 android:id="@+id/title_scrollview_parent"
@@ -44,7 +46,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
-                    android:scrollbars="none">
+                    android:scrollbars="none"
+                    tools:ignore="UselessParent">
                     <TextView
                         android:id="@+id/currency_title"
                         android:layout_width="wrap_content"

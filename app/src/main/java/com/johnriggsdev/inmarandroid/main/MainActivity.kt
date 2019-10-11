@@ -61,13 +61,13 @@ class MainActivity : AppCompatActivity(), MainAdapter.ClickListener, DetailsFrag
     }
 
     private fun setupListeners() {
-        retry_button.setOnClickListener(View.OnClickListener {
+        retry_button.setOnClickListener {
             viewModel.onRefresh()
-        })
+        }
 
-        transparent_mask.setOnClickListener(View.OnClickListener {
+        transparent_mask.setOnClickListener {
             dismissDetails()
-        })
+        }
 
         val connectionLiveData = ConnectionLiveData(this)
         connectionLiveData.observe(this, Observer {
@@ -110,7 +110,7 @@ class MainActivity : AppCompatActivity(), MainAdapter.ClickListener, DetailsFrag
 
     }
 
-    fun setupRecyclerView(currencies : MutableList<Currency>){
+    private fun setupRecyclerView(currencies : MutableList<Currency>){
         val recycler = main_recycler
         recycler.layoutManager = LinearLayoutManager(this)
         recycler.adapter = MainAdapter(currencies, this, this)
@@ -158,7 +158,7 @@ class MainActivity : AppCompatActivity(), MainAdapter.ClickListener, DetailsFrag
         }
     }
 
-    inline fun FragmentManager.inTransaction(func: FragmentTransaction.() -> Unit) {
+    private inline fun FragmentManager.inTransaction(func: FragmentTransaction.() -> Unit) {
         val fragmentTransaction = beginTransaction()
         fragmentTransaction.func()
         fragmentTransaction.commit()

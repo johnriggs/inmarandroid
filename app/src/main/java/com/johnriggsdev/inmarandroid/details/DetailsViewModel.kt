@@ -6,19 +6,18 @@ import androidx.lifecycle.ViewModel
 import com.johnriggsdev.inmarandroid.model.api.CryptoCurrencyService
 import com.johnriggsdev.inmarandroid.model.Currency
 import com.johnriggsdev.inmarandroid.model.CurrencyMetadata
-import com.johnriggsdev.inmarandroid.utils.Constants
-import io.reactivex.android.schedulers.AndroidSchedulers
+import com.johnriggsdev.inmarandroid.utils.Constants.Companion.HEADERS
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.schedulers.Schedulers
 
-class DetailsViewModel() : ViewModel() {
+class DetailsViewModel : ViewModel() {
     private val currencyMetadata = MutableLiveData<CurrencyMetadata>()
     private val metadataError = MutableLiveData<String>()
     private val isProgressing = MutableLiveData<Boolean>()
 
     lateinit var currency : Currency
 
-    private val service = CryptoCurrencyService()
+    var service = CryptoCurrencyService()
 
     private val compositeDisposable = CompositeDisposable()
 
@@ -39,22 +38,18 @@ class DetailsViewModel() : ViewModel() {
         return isProgressing
     }
 
-    private fun fetchMetadata(currency: Currency) {
+    fun fetchMetadata(currency: Currency) {
         isProgressing.value = true
-        val headers : MutableMap<String, String> = mutableMapOf()
-        headers.put(Constants.ACCEPT_KEY, Constants.APP_JSON)
-        headers.put(Constants.HEADER_KEY, Constants.getApiKey())
 
-        compositeDisposable.add(service.getMetadataForIDs(headers, currency.id)
+        compositeDisposable.add(service.getMetadataForIDs(HEADERS, currency.id)
             .subscribeOn(Schedulers.newThread())
-            .observeOn(AndroidSchedulers.mainThread())
             .subscribe({
-                currencyMetadata.value = it.data.getValue(currency.id)
-                metadataError.value = ""
-                isProgressing.value = false
+                currencyMetadata.postValue(it.data.getValue(currency.id))
+                metadataError.postValue("")
+                isProgressing.postValue(false)
             }, {
-                metadataError.value = it.localizedMessage
-                isProgressing.value = false
+                metadataError.postValue(it.localizedMessage)
+                isProgressing.postValue(false)
             }))
     }
 

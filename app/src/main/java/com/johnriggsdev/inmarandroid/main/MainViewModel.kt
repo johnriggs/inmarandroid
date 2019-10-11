@@ -5,27 +5,27 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.johnriggsdev.inmarandroid.model.api.CryptoCurrencyService
 import com.johnriggsdev.inmarandroid.model.Currency
-import com.johnriggsdev.inmarandroid.utils.Constants
-import com.johnriggsdev.inmarandroid.utils.Constants.Companion.ACCEPT_KEY
 import com.johnriggsdev.inmarandroid.utils.Constants.Companion.API_COUNT
-import com.johnriggsdev.inmarandroid.utils.Constants.Companion.APP_JSON
 import com.johnriggsdev.inmarandroid.utils.Constants.Companion.DEFAULT_SORT
-import com.johnriggsdev.inmarandroid.utils.Constants.Companion.HEADER_KEY
-import io.reactivex.android.schedulers.AndroidSchedulers
+import com.johnriggsdev.inmarandroid.utils.Constants.Companion.HEADERS
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.schedulers.Schedulers
 
 class MainViewModel : ViewModel() {
-    private var fetchedCurrencies = false
+    var fetchedCurrencies = false
     var hasConnection = false
 
     private val currencies = MutableLiveData<Array<Currency>>()
     private val currencyError = MutableLiveData<String>()
     private val isProgressing = MutableLiveData<Boolean>()
 
-    private val service = CryptoCurrencyService()
+    var service = CryptoCurrencyService()
 
     private val compositeDisposable = CompositeDisposable()
+
+    init {
+        isProgressing.value = false
+    }
 
     fun updateConnection(connected : Boolean){
         hasConnection = connected
@@ -48,24 +48,20 @@ class MainViewModel : ViewModel() {
         return isProgressing
     }
 
-    private fun fetchCurrencies() {
+    fun fetchCurrencies() {
         if (!fetchedCurrencies && hasConnection) {
             isProgressing.value = true
-            val headers: MutableMap<String, String> = mutableMapOf()
-            headers.put(ACCEPT_KEY, APP_JSON)
-            headers.put(HEADER_KEY, Constants.getApiKey())
 
-            compositeDisposable.add(service.getTopFiftyCurrencies(headers, API_COUNT, DEFAULT_SORT)
+            compositeDisposable.add(service.getTopFiftyCurrencies(HEADERS, API_COUNT, DEFAULT_SORT)
                 .subscribeOn(Schedulers.newThread())
-                .observeOn(AndroidSchedulers.mainThread())
                 .subscribe({
-                    currencies.value = it.data
+                    currencies.postValue(it.data)
                     fetchedCurrencies = true
-                    currencyError.value = ""
-                    isProgressing.value = false
+                    currencyError.postValue("")
+                    isProgressing.postValue(false)
                 }, {
-                    currencyError.value = it.localizedMessage
-                    isProgressing.value = false
+                    currencyError.postValue(it.localizedMessage)
+                    isProgressing.postValue(false)
                 })
             )
         }
